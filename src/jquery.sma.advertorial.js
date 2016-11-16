@@ -38,31 +38,29 @@
 						"Είστε μόνο ένα κλικ μακρυά, πατώντας " +
 						"<a href=\"DATA_PROVIDER_DEEPLINK\">εδώ</a>.",
 						"Τέλος, με μόλις PRICE Ευρώ, εντοπίσαμε το φθηνότερο " +
-						"αεροπρικό εισιτήριο με επιστροφή από OUTBOUND_CITY_NAME " +
+						"αεροπορικό εισιτήριο με επιστροφή από OUTBOUND_CITY_NAME " +
 						"προς INBOUND_CITY_NAME από OUTBOUND_DEPARTURE_DATE " +
 						"μέχρι INBOUND_DEPARTURE_DATE. Εκμεταλλευτείτε την ευκαρία " +
 						"πατώντας <a href=\"DATA_PROVIDER_DEEPLINK\">εδώ</a>."
 					],
 					"EN": [
-						"Βρήκαμε ότι το φθηνότερο αεροπορικό εισιτήριο " +
-						"με επιστροφή από OUTBOUND_CITY_NAME " +
-						"προς INBOUND_CITY_NAME για τις διακοπές των " +
-						"Χριστουγέννων είναι από OUTBOUND_DEPARTURE_DATE " +
-						"έως INBOUND_DEPARTURE_DATE με μόλις PRICE Ευρώ. " +
-						"Πατήστε <a href=\"DATA_PROVIDER_DEEPLINK\">εδώ</a> " +
-						"για περισσότερες πληροφορίες.",
-						"Αν πάλι, σας φαντάζει ένα ταξίδι από OUTBOUND_CITY_NAME " +
-						"προς INBOUND_CITY_NAME ως ένας Χριστουγεννιάτικος " +
-						"προορισμός, το χαμηλότερο αεροπορικό εισιτήριο με " +
-						"επιστροφή που εντοπίσαμε είναι από OUTBOUND_DEPARTURE_DATE " +
-						"μέχρι INBOUND_DEPARTURE_DATE με μόλις PRICE Ευρώ. " +
-						"Είστε μόνο ένα κλικ μακρυά, πατώντας " +
-						"<a href=\"DATA_PROVIDER_DEEPLINK\">εδώ</a>.",
-						"Τέλος, με μόλις PRICE Ευρώ, εντοπίσαμε το φθηνότερο " +
-						"αεροπρικό εισιτήριο με επιστροφή από OUTBOUND_CITY_NAME " +
-						"προς INBOUND_CITY_NAME από OUTBOUND_DEPARTURE_DATE " +
-						"μέχρι INBOUND_DEPARTURE_DATE. Εκμεταλλευτείτε την ευκαρία " +
-						"πατώντας <a href=\"DATA_PROVIDER_DEEPLINK\">εδώ</a>."
+						"We have identified that the cheapest return air " +
+						"ticket from OUTBOUND_CITY_NAME to INBOUND_CITY_NAME " +
+						"for the Christmas holidays is from OUTBOUND_DEPARTURE_DATE " +
+						"until INBOUND_DEPARTURE_DATE for only PRICE Euros. " +
+						"Click <a href=\"DATA_PROVIDER_DEEPLINK\">here</a> for " +
+						"more information.",
+						"If a trip to INBOUND_CITY_NAME from OUTBOUND_CITY_NAME " +
+						"sounds like a appealing Christmas destination, the " +
+						"cheapest return air ticket that we have found is from " +
+						"OUTBOUND_DEPARTURE_DATE until INBOUND_DEPARTURE_DATE for " +
+						"only PRICE Euros. You are just a click away, by clicking " +
+						"<a href=\"DATA_PROVIDER_DEEPLINK\">here</a>.",
+						"Finally, for only PRICE Euros, we spotted out the cheapest " +
+						"return air ticket from OUTBOUND_CITY_NAME to INBOUND_CITY_NAME " +
+						"from OUTBOUND_DEPARTURE_DATE until INBOUND_DEPARTURE_DATE. Take " +
+						"advantage of this Christmas deal, by clicking " +
+						"<a href=\"DATA_PROVIDER_DEEPLINK\">here</a>."
 					]
 				}
 			};
