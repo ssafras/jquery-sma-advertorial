@@ -3,9 +3,11 @@
 	<head>
 		<title>SMA Advertorial Demo</title>
 		<script src="http://code.jquery.com/jquery-1.7.min.js"></script>
-		<script src="../dist/jquery.sma.advertorial.min.js"></script>
 	</head>
 	<body>
+
+
+		<script src="../dist/jquery.sma.advertorial.min.js"></script>
 		<div id="sma-advertorial"></div>
 		<script>
 			$( function() {
@@ -14,10 +16,12 @@
 					categoryId: "42",
 					language: "EL",
 					limit: 5,
-					mode: "text",
+					mode: "list",
 					apiEndpoint: "http://85.25.43.140/addons/api/advertorial/getdeals/"
 				} );
 			} );
 		</script>
+
+
 	</body>
 </html>

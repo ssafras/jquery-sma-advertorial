@@ -38,18 +38,18 @@
 						"έως INBOUND_DEPARTURE_DATE με μόλις PRICE Ευρώ. " +
 						"Πατήστε <a href=\"DATA_PROVIDER_DEEPLINK\">εδώ</a> " +
 						"για περισσότερες πληροφορίες.",
-						"Αν πάλι, σας φαντάζει ένα ταξίδι από OUTBOUND_CITY_NAME " +
+						" Αν πάλι, σας φαντάζει ένα ταξίδι από OUTBOUND_CITY_NAME " +
 						"προς INBOUND_CITY_NAME ως ένας Χριστουγεννιάτικος " +
 						"προορισμός, το χαμηλότερο αεροπορικό εισιτήριο με " +
 						"επιστροφή που εντοπίσαμε είναι από OUTBOUND_DEPARTURE_DATE " +
 						"μέχρι INBOUND_DEPARTURE_DATE με μόλις PRICE Ευρώ. " +
 						"Είστε μόνο ένα κλικ μακρυά, πατώντας " +
 						"<a href=\"DATA_PROVIDER_DEEPLINK\">εδώ</a>.",
-						"Τέλος, με μόλις PRICE Ευρώ, εντοπίσαμε το φθηνότερο " +
+						" Τέλος, με μόλις PRICE Ευρώ, εντοπίσαμε το φθηνότερο " +
 						"αεροπορικό εισιτήριο με επιστροφή από OUTBOUND_CITY_NAME " +
 						"προς INBOUND_CITY_NAME από OUTBOUND_DEPARTURE_DATE " +
 						"μέχρι INBOUND_DEPARTURE_DATE. Εκμεταλλευτείτε την ευκαρία " +
-						"πατώντας <a href=\"DATA_PROVIDER_DEEPLINK\">εδώ</a>."
+						"πατώντας <a target=\"_blank\" href=\"DATA_PROVIDER_DEEPLINK\">εδώ</a>."
 					],
 					"EN": [
 						"We have identified that the cheapest return air " +
@@ -58,17 +58,17 @@
 						"until INBOUND_DEPARTURE_DATE for only PRICE Euros. " +
 						"Click <a href=\"DATA_PROVIDER_DEEPLINK\">here</a> for " +
 						"more information.",
-						"If a trip to INBOUND_CITY_NAME from OUTBOUND_CITY_NAME " +
+						" If a trip to INBOUND_CITY_NAME from OUTBOUND_CITY_NAME " +
 						"sounds like a appealing Christmas destination, the " +
 						"cheapest return air ticket that we have found is from " +
 						"OUTBOUND_DEPARTURE_DATE until INBOUND_DEPARTURE_DATE for " +
 						"only PRICE Euros. You are just a click away, by clicking " +
 						"<a href=\"DATA_PROVIDER_DEEPLINK\">here</a>.",
-						"Finally, for only PRICE Euros, we spotted out the cheapest " +
+						" Finally, for only PRICE Euros, we spotted out the cheapest " +
 						"return air ticket from OUTBOUND_CITY_NAME to INBOUND_CITY_NAME " +
 						"from OUTBOUND_DEPARTURE_DATE until INBOUND_DEPARTURE_DATE. Take " +
 						"advantage of this Christmas deal, by clicking " +
-						"<a href=\"DATA_PROVIDER_DEEPLINK\">here</a>."
+						"<a target=\"_blank\" href=\"DATA_PROVIDER_DEEPLINK\">here</a>."
 					]
 				}
 			};
@@ -127,13 +127,12 @@
 
 								$( "#smaAdvertorial-list" ).append(
 									"<li>" +
-									"<a href=\"" + deals[ deal ].DATA_PROVIDER_DEEPLINK + "\">" +
+									"<a target=\"_blank\" href=\"" +
+									deals[ deal ].DATA_PROVIDER_DEEPLINK + "\">" +
 									deals[ deal ].PRICE + "&euro; " +
 									deals[ deal ].OUTBOUND_CITY_NAME +
-									" (" + deals[ deal ].OUTBOUND_DEPARTURE_AIRPORT_CODE +
-									") &rarr; " +
-									deals[ deal ].INBOUND_CITY_NAME +
-									" (" + deals[ deal ].INBOUND_DEPARTURE_AIRPORT_CODE + ") " +
+									" &rarr; " +
+									deals[ deal ].INBOUND_CITY_NAME + " " +
 									deals[ deal ].OUTBOUND_DEPARTURE_DATE + " - " +
 									deals[ deal ].INBOUND_DEPARTURE_DATE + "</a>" +
 									"</li>"
