@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SMA Advertorial Demo</title>
+		<!--<script src="../node_modules/jquery/dist/jquery.min.js"></script>-->
+		<script src="http://code.jquery.com/jquery-1.7.min.js"></script>
+		<script src="../dist/jquery.sma.advertorial.min.js"></script>
+	</head>
+	<body>
+		<div id="element"></div>
+		<script>
+			$( function() {
+				$( "#element" ).smaAdvertorial( {
+					clientId: 		"7",
+					categoryId: 	"42",
+					language: 		"EL",
+					limit: 			5,
+					api_endpoint: 	"http://85.25.43.140/addons/api/advertorial/getdeals/"
+				} );
+			} );
+		</script>
+	</body>
+</html>
