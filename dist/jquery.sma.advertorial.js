@@ -24,11 +24,11 @@
 		// Create the defaults once
 		var pluginName = "smaAdvertorial",
 			defaults = {
-				clientId: 		"",
-				categoryId: 	"",
-				language: 		"",
-				limit: 			0,
-				api_endpoint: 	""
+				clientId: "",
+				categoryId: "",
+				language: "",
+				limit: 0,
+				apiEndpoint: ""
 			};
 
 		// The actual plugin constructor
@@ -61,32 +61,41 @@
 
 				var self = this;
 
-				//Send Request	
-				$.ajax({
+				//Send Request
+				$.ajax( {
 					method: "GET",
-					url: this.settings.api_endpoint,
-					data: { 
-						clientId: 	this.settings.clientId,
-						categoryId: this.settings.categoryId,
-						language: 	this.settings.language,
-						limit: 		this.settings.limit
+					url: this.settings.apiEndpoint,
+					data: {
+						clientId:	this.settings.clientId,
+						categoryId:	this.settings.categoryId,
+						language:	this.settings.language,
+						limit:		this.settings.limit
 					}
-				})
-				.done(function( msg ) {
+				} )
+				.done( function( msg ) {
 
-					$(self.element).append("<ul id='smaAdvertorial-list'></ul>");
+					$( self.element ).append( "<ul id='smaAdvertorial-list'></ul>" );
 
-					var deals = JSON.parse(msg);
-					
-					for(var deal in deals){
-						if (deals.hasOwnProperty(deal)) {	
+					var deals = JSON.parse( msg );
 
-							$("#smaAdvertorial-list").append("<li><a href=\""+deals[deal].data_provider_deeplink+"\">"+deals[deal].price+"&euro; "+deals[deal].outbound_city_name+" ("+deals[deal].outbound_departure_airport_code+") &rarr; "+deals[deal].inbound_city_name+" ("+deals[deal].inbound_departure_airport_code+") "+deals[deal].outbound_departure_date+" - "+deals[deal].inbound_departure_date+"</a></li>");
+					for ( var deal in deals ) {
+						if ( deals.hasOwnProperty( deal ) ) {
+
+							$( "#smaAdvertorial-list" ).append(
+								"<li><a href=\"" + deals[ deal ].DATA_PROVIDER_DEEPLINK + "\">" +
+								deals[ deal ].PRICE + "&euro; " +
+								deals[ deal ].OUTBOUND_CITY_NAME +
+								" (" + deals[ deal ].OUTBOUND_DEPARTURE_AIRPORT_CODE + ") &rarr; " +
+								deals[ deal ].INBOUND_CITY_NAME +
+								" (" + deals[ deal ].INBOUND_DEPARTURE_AIRPORT_CODE + ") " +
+								deals[ deal ].OUTBOUND_DEPARTURE_DATE + " - " +
+								deals[ deal ].INBOUND_DEPARTURE_DATE + "</a></li>"
+							);
 
 						}
 					}
 
-				});
+				} );
 
 			}
 		} );

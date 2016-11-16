@@ -74,5 +74,5 @@ module.exports = function( grunt ) {
 
 	grunt.registerTask( "lint", [ "jshint", "jscs" ] );
 	grunt.registerTask( "build", [ "concat", "uglify" ] );
-	grunt.registerTask( "default", [ "jshint", "build" ] );
+	grunt.registerTask( "default", [ "lint",  "build" ] );
 };
