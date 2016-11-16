@@ -28,7 +28,51 @@
 				categoryId: "",
 				language: "",
 				limit: 0,
-				apiEndpoint: ""
+				apiEndpoint: "",
+				textLabels: {
+					"EL": [
+						"Βρήκαμε ότι το φθηνότερο αεροπορικό εισιτήριο " +
+						"με επιστροφή από OUTBOUND_CITY_NAME " +
+						"προς INBOUND_CITY_NAME για τις διακοπές των " +
+						"Χριστουγέννων είναι από OUTBOUND_DEPARTURE_DATE " +
+						"έως INBOUND_DEPARTURE_DATE με μόλις PRICE Ευρώ. " +
+						"Πατήστε <a href=\"DATA_PROVIDER_DEEPLINK\">εδώ</a> " +
+						"για περισσότερες πληροφορίες.",
+						"Αν πάλι, σας φαντάζει ένα ταξίδι από OUTBOUND_CITY_NAME " +
+						"προς INBOUND_CITY_NAME ως ένας Χριστουγεννιάτικος " +
+						"προορισμός, το χαμηλότερο αεροπορικό εισιτήριο με " +
+						"επιστροφή που εντοπίσαμε είναι από OUTBOUND_DEPARTURE_DATE " +
+						"μέχρι INBOUND_DEPARTURE_DATE με μόλις PRICE Ευρώ. " +
+						"Είστε μόνο ένα κλικ μακρυά, πατώντας " +
+						"<a href=\"DATA_PROVIDER_DEEPLINK\">εδώ</a>.",
+						"Τέλος, με μόλις PRICE Ευρώ, εντοπίσαμε το φθηνότερο " +
+						"αεροπρικό εισιτήριο με επιστροφή από OUTBOUND_CITY_NAME " +
+						"προς INBOUND_CITY_NAME από OUTBOUND_DEPARTURE_DATE " +
+						"μέχρι INBOUND_DEPARTURE_DATE. Εκμεταλλευτείτε την ευκαρία " +
+						"πατώντας <a href=\"DATA_PROVIDER_DEEPLINK\">εδώ</a>."
+					],
+					"EN": [
+						"Βρήκαμε ότι το φθηνότερο αεροπορικό εισιτήριο " +
+						"με επιστροφή από OUTBOUND_CITY_NAME " +
+						"προς INBOUND_CITY_NAME για τις διακοπές των " +
+						"Χριστουγέννων είναι από OUTBOUND_DEPARTURE_DATE " +
+						"έως INBOUND_DEPARTURE_DATE με μόλις PRICE Ευρώ. " +
+						"Πατήστε <a href=\"DATA_PROVIDER_DEEPLINK\">εδώ</a> " +
+						"για περισσότερες πληροφορίες.",
+						"Αν πάλι, σας φαντάζει ένα ταξίδι από OUTBOUND_CITY_NAME " +
+						"προς INBOUND_CITY_NAME ως ένας Χριστουγεννιάτικος " +
+						"προορισμός, το χαμηλότερο αεροπορικό εισιτήριο με " +
+						"επιστροφή που εντοπίσαμε είναι από OUTBOUND_DEPARTURE_DATE " +
+						"μέχρι INBOUND_DEPARTURE_DATE με μόλις PRICE Ευρώ. " +
+						"Είστε μόνο ένα κλικ μακρυά, πατώντας " +
+						"<a href=\"DATA_PROVIDER_DEEPLINK\">εδώ</a>.",
+						"Τέλος, με μόλις PRICE Ευρώ, εντοπίσαμε το φθηνότερο " +
+						"αεροπρικό εισιτήριο με επιστροφή από OUTBOUND_CITY_NAME " +
+						"προς INBOUND_CITY_NAME από OUTBOUND_DEPARTURE_DATE " +
+						"μέχρι INBOUND_DEPARTURE_DATE. Εκμεταλλευτείτε την ευκαρία " +
+						"πατώντας <a href=\"DATA_PROVIDER_DEEPLINK\">εδώ</a>."
+					]
+				}
 			};
 
 		// The actual plugin constructor
@@ -74,25 +118,63 @@
 				} )
 				.done( function( msg ) {
 
-					$( self.element ).append( "<ul id='smaAdvertorial-list'></ul>" );
-
 					var deals = JSON.parse( msg );
 
-					for ( var deal in deals ) {
-						if ( deals.hasOwnProperty( deal ) ) {
+					if ( self.settings.mode === "list" ) {
 
-							$( "#smaAdvertorial-list" ).append(
-								"<li><a href=\"" + deals[ deal ].DATA_PROVIDER_DEEPLINK + "\">" +
-								deals[ deal ].PRICE + "&euro; " +
-								deals[ deal ].OUTBOUND_CITY_NAME +
-								" (" + deals[ deal ].OUTBOUND_DEPARTURE_AIRPORT_CODE + ") &rarr; " +
-								deals[ deal ].INBOUND_CITY_NAME +
-								" (" + deals[ deal ].INBOUND_DEPARTURE_AIRPORT_CODE + ") " +
-								deals[ deal ].OUTBOUND_DEPARTURE_DATE + " - " +
-								deals[ deal ].INBOUND_DEPARTURE_DATE + "</a></li>"
+						$( self.element ).append( "<ul id='smaAdvertorial-list'></ul>" );
+
+						for ( var deal in deals ) {
+							if ( deals.hasOwnProperty( deal ) ) {
+
+								$( "#smaAdvertorial-list" ).append(
+									"<li>" +
+									"<a href=\"" + deals[ deal ].DATA_PROVIDER_DEEPLINK + "\">" +
+									deals[ deal ].PRICE + "&euro; " +
+									deals[ deal ].OUTBOUND_CITY_NAME +
+									" (" + deals[ deal ].OUTBOUND_DEPARTURE_AIRPORT_CODE +
+									") &rarr; " +
+									deals[ deal ].INBOUND_CITY_NAME +
+									" (" + deals[ deal ].INBOUND_DEPARTURE_AIRPORT_CODE + ") " +
+									deals[ deal ].OUTBOUND_DEPARTURE_DATE + " - " +
+									deals[ deal ].INBOUND_DEPARTURE_DATE + "</a>" +
+									"</li>"
+								);
+
+							}
+						}
+					}else {
+
+						if ( self.settings.limit > 3 ) {
+
+							//Max 3 deals supported on text mode.
+							self.settings.limit = 3;
+						}
+
+						for ( var i = 0; i < self.settings.limit; i++ ) {
+
+							$( self.element ).append(
+								self.settings.textLabels[ self.settings.language ][ i ].
+									replace( "DATA_PROVIDER_DEEPLINK",
+										deals[ i ].DATA_PROVIDER_DEEPLINK ).
+									replace( "PRICE",
+										deals[ i ].PRICE ).
+									replace( "OUTBOUND_CITY_NAME",
+										deals[ i ].OUTBOUND_CITY_NAME ).
+									replace( "OUTBOUND_DEPARTURE_AIRPORT_CODE",
+										deals[ i ].OUTBOUND_DEPARTURE_AIRPORT_CODE ).
+									replace( "INBOUND_CITY_NAME",
+										deals[ i ].INBOUND_CITY_NAME ).
+									replace( "INBOUND_DEPARTURE_AIRPORT_CODE",
+										deals[ i ].INBOUND_DEPARTURE_AIRPORT_CODE ).
+									replace( "OUTBOUND_DEPARTURE_DATE",
+										deals[ i ].OUTBOUND_DEPARTURE_DATE ).
+									replace( "INBOUND_DEPARTURE_DATE",
+										deals[ i ].INBOUND_DEPARTURE_DATE )
 							);
 
 						}
+
 					}
 
 				} );
