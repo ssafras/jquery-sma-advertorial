@@ -20,6 +20,8 @@
 				categoryId: "",
 				language: "",
 				limit: 0,
+				mode: "list",
+				datesVisible: false,
 				apiEndpoint: "",
 				textLabels: {
 					"EL": [
@@ -164,34 +166,253 @@
 
 						}
 
-					}else if ( self.settings.mode === "cardsspi" ) {
-						/*
-						$( self.element ).append(
+					}else if ( self.settings.mode === "cards" ) {
 
-							"" +
+						$( self.element ).append(
 							"<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\">" +
-							"	<tr>" +
-							"		<td><img src=\"http://85.25.43.140/fly3/front_gui/images/cities/".deals[ 0 ].OUTBOUND_CITY_ID.".jpg\"></td>" +
-							"		<td><img src=\"http://85.25.43.140/fly3/front_gui/images/cities/".deals[ 1 ].OUTBOUND_CITY_ID.".jpg\"></td>" +
-							"	</tr>" +
-							"	<tr>" +
-							"		<td><img src=\"http://85.25.43.140/fly3/front_gui/images/cities/".deals[ 2 ].OUTBOUND_CITY_ID.".jpg\"></td>" +
-							"		<td><img src=\"http://85.25.43.140/fly3/front_gui/images/cities/".deals[ 3 ].OUTBOUND_CITY_ID.".jpg\"></td>" +
-							"	</tr>" +
-							"</table>" +
-							""
-						
-							deals[ i ].DATA_PROVIDER_DEEPLINK ).
-							deals[ i ].PRICE ).
-							deals[ i ].OUTBOUND_CITY_NAME ).
-							deals[ i ].OUTBOUND_DEPARTURE_AIRPORT_CODE ).
-							deals[ i ].INBOUND_CITY_NAME ).
-							deals[ i ].INBOUND_DEPARTURE_AIRPORT_CODE ).
-							deals[ i ].OUTBOUND_DEPARTURE_DATE ).
-							deals[ i ].INBOUND_DEPARTURE_DATE )
-					
+							"  <tr>" +
+							"    <td style=\"" +
+							"     position: relative;" +
+							"     width: 328px;" +
+							"     height:135px;" +
+							"     background-image:url('" + deals[ 0 ].INBOUND_CITY_IMG + "')\">" +
+							"      <span style=\"" +
+							"       position: absolute;" +
+							"       top:20px;" +
+							"       left:20px;" +
+							"       font-family:Arial;" +
+							"       font-size:25px;" +
+							"       text-shadow: 2px 2px #000000;" +
+							"       color:#FFFFFF;" +
+							"       font-weight:bold\">" +
+										deals[ 0 ].INBOUND_CITY_NAME +
+							"      </span>" +
+							( function( ) {
+								if ( self.settings.datesVisible ) {
+									return (
+
+									"<span style=\"" +
+									" position: absolute;" +
+									" top:50px;" +
+									" left:20px;" +
+									" font-family:Arial;" +
+									" font-size:22px;" +
+									" text-shadow: 2px 2px #000000;" +
+									" color:#FFFFFF;" +
+									" font-weight:bold\">" +
+										deals[ 0 ].OUTBOUND_DEPARTURE_DATE + " - " +
+										deals[ 0 ].INBOUND_DEPARTURE_DATE +
+									"</span>"
+
+									);
+								}
+							} )() +
+							"      <span style=\"" +
+							"       position: absolute;" +
+							"       bottom:0px;" +
+							"       right:10px;" +
+							"       font-family:Arial;" +
+							"       font-size:60px;" +
+							"       text-shadow: 2px 2px #000000;" +
+							"       color:#FFFFFF;" +
+							"       font-weight:bold\">" +
+										deals[ 0 ].PRICE_ROUNDED + "&euro;" +
+							"      </span>" +
+							"      <a target=\"_blank\" href=\"" +
+										deals[ 0 ].DATA_PROVIDER_DEEPLINK + "\"" +
+							"        <div style=\"" +
+							"         position: absolute;" +
+							"         left:0px;" +
+							"         top:0px;" +
+							"         width:328px;" +
+							"         height:135px;" +
+							"         background-color:transparent\">" +
+							"        </div>" +
+							"      </a>" +
+							"    </td>" +
+							"    <td style=\"" +
+							"     position: relative;" +
+							"     width: 328px;" +
+							"     height:135px;" +
+							"     background-image:url('" + deals[ 1 ].INBOUND_CITY_IMG + "')\">" +
+							"      <span style=\"" +
+							"       position: absolute;" +
+							"       top:20px;" +
+							"       left:20px;" +
+							"       font-family:Arial;" +
+							"       font-size:25px;" +
+							"       text-shadow: 2px 2px #000000;" +
+							"       color:#FFFFFF;" +
+							"       font-weight:bold\">" +
+										deals[ 1 ].INBOUND_CITY_NAME +
+							"      </span>" +
+							( function( ) {
+								if ( self.settings.datesVisible ) {
+									return (
+
+									"<span style=\"" +
+									" position: absolute;" +
+									" top:50px;" +
+									" left:20px;" +
+									" font-family:Arial;" +
+									" font-size:22px;" +
+									" text-shadow: 2px 2px #000000;" +
+									" color:#FFFFFF;" +
+									" font-weight:bold\">" +
+										deals[ 1 ].OUTBOUND_DEPARTURE_DATE + " - " +
+										deals[ 1 ].INBOUND_DEPARTURE_DATE +
+									"</span>"
+
+									);
+								}
+							} )() +
+							"      <span style=\"" +
+							"       position: absolute;" +
+							"       bottom:0px;" +
+							"       right:10px;" +
+							"       font-family:Arial;" +
+							"       font-size:60px;" +
+							"       text-shadow: 2px 2px #000000;" +
+							"       color:#FFFFFF;" +
+							"       font-weight:bold\">" +
+										deals[ 1 ].PRICE_ROUNDED + "&euro;" +
+							"      </span>" +
+							"      <a target=\"_blank\" href=\"" +
+										deals[ 1 ].DATA_PROVIDER_DEEPLINK + "\"" +
+							"        <div style=\"" +
+							"         position: absolute;" +
+							"         left:0px;" +
+							"         top:0px;" +
+							"         width:328px;" +
+							"         height:135px;" +
+							"         background-color:transparent\">" +
+							"        </div>" +
+							"      </a>" +
+							"    </td>" +
+							"  </tr>" +
+							"  <tr>" +
+							"    <td style=\"" +
+							"     position: relative;" +
+							"     width: 328px;" +
+							"     height:135px;" +
+							"     background-image:url('" + deals[ 2 ].INBOUND_CITY_IMG + "')\">" +
+							"      <span style=\"" +
+							"       position: absolute;" +
+							"       top:20px;" +
+							"       left:20px;" +
+							"       font-family:Arial, Helvetica, sans-serif;" +
+							"       font-size:25px;" +
+							"       text-shadow: 2px 2px #000000;" +
+							"       color:#FFFFFF;" +
+							"       font-weight:bold\">" +
+										deals[ 2 ].INBOUND_CITY_NAME +
+							"      </span>" +
+							( function( ) {
+								if ( self.settings.datesVisible ) {
+									return (
+
+									"<span style=\"" +
+									" position: absolute;" +
+									" top:50px;" +
+									" left:20px;" +
+									" font-family:Arial;" +
+									" font-size:22px;" +
+									" text-shadow: 2px 2px #000000;" +
+									" color:#FFFFFF;" +
+									" font-weight:bold\">" +
+										deals[ 2 ].OUTBOUND_DEPARTURE_DATE + " - " +
+										deals[ 2 ].INBOUND_DEPARTURE_DATE +
+									"</span>"
+
+									);
+								}
+							} )() +
+							"      <span style=\"" +
+							"       position: absolute;" +
+							"       bottom:0px;" +
+							"       right:10px;" +
+							"       font-family:Arial, Helvetica, sans-serif;" +
+							"       font-size:60px;" +
+							"       text-shadow: 2px 2px #000000;" +
+							"       color:#FFFFFF;" +
+							"       font-weight:bold\">" +
+										deals[ 2 ].PRICE_ROUNDED + "&euro;" +
+							"      </span>" +
+							"      <a target=\"_blank\" href=\"" +
+										deals[ 2 ].DATA_PROVIDER_DEEPLINK + "\"" +
+							"        <div style=\"" +
+							"         position: absolute;" +
+							"         left:0px;" +
+							"         top:0px;" +
+							"         width:328px;" +
+							"         height:135px;" +
+							"         background-color:transparent\">" +
+							"        </div>" +
+							"      </a>" +
+							"    </td>" +
+							"    <td style=\"" +
+							"     position: relative;" +
+							"     width: 328px;" +
+							"     height:135px;" +
+							"     background-image:url('" + deals[ 3 ].INBOUND_CITY_IMG + "')\">" +
+							"      <span style=\"" +
+							"       position: absolute;" +
+							"       top:20px;" +
+							"       left:20px;" +
+							"       font-family:Arial, Helvetica, sans-serif;" +
+							"       font-size:25px;" +
+							"       text-shadow: 2px 2px #000000;" +
+							"       color:#FFFFFF;" +
+							"       font-weight:bold\">" +
+										deals[ 3 ].INBOUND_CITY_NAME +
+							"      </span>" +
+							( function( ) {
+								if ( self.settings.datesVisible ) {
+									return (
+
+									"<span style=\"" +
+									" position: absolute;" +
+									" top:50px;" +
+									" left:20px;" +
+									" font-family:Arial;" +
+									" font-size:22px;" +
+									" text-shadow: 2px 2px #000000;" +
+									" color:#FFFFFF;" +
+									" font-weight:bold\">" +
+										deals[ 3 ].OUTBOUND_DEPARTURE_DATE + " - " +
+										deals[ 3 ].INBOUND_DEPARTURE_DATE +
+									"</span>"
+
+									);
+								}
+							} )() +
+							"      <span style=\"" +
+							"       position: absolute;" +
+							"       bottom:0px;" +
+							"       right:10px;" +
+							"       font-family:Arial, Helvetica, sans-serif;" +
+							"       font-size:60px;" +
+							"       text-shadow: 2px 2px #000000;" +
+							"       color:#FFFFFF;" +
+							"       font-weight:bold\">" +
+										deals[ 3 ].PRICE_ROUNDED + "&euro;" +
+							"      </span>" +
+							"      <a target=\"_blank\" href=\"" +
+										deals[ 3 ].DATA_PROVIDER_DEEPLINK + "\"" +
+							"        <div style=\"" +
+							"         position: absolute;" +
+							"         left:0px;" +
+							"         top:0px;" +
+							"         width:328px;" +
+							"         height:135px;" +
+							"         background-color:transparent\">" +
+							"        </div>" +
+							"      </a>" +
+							"    </td>" +
+							"  </tr>" +
+							"</table>"
 						);
-						*/
+
 					}
 
 				} );

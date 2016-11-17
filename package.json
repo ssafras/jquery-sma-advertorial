@@ -12,7 +12,11 @@
     "email": "ssafras@gmail.com",
     "url": "https://github.com/ssafras"
   },
-  "homepage": "http://www.smartairdeals.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ssafras/jquery-sma-advertorial.git"
+  },
+  "homepage": "http://www.safras.info",
   "contributors": [
     {
       "name": "Spiros Safras",
@@ -42,7 +46,6 @@
     "qunitjs": "^1.19.0"
   },
   "scripts": {
-    "jscs": "jscs src",
-    "test": "npm run jscs && grunt travis --verbose"
+    "jscs": "jscs src"
   }
 }
