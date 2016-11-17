@@ -13,13 +13,18 @@ Insert the following script to your code:
 <script src="../jquery.sma.advertorial.min.js"></script>
 ```
 
+Or use the remotely hosted version, available at:
+```
+<script src="http://85.25.43.140/addons/jquery-sma-advertorial/dist/jquery.sma.advertorial.min.js"></script>
+```
+
 Create a container element in your html code:
 
 ```html
 <div id="sma-advertorial"></div>
 ```
 
-Now, add the following code to your webpage:
+Add the following code to your webpage:
 
 ```javascript
 $( function() {
