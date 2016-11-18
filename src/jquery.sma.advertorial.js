@@ -151,11 +151,13 @@
 									replace( "PRICE",
 										deals[ i ].PRICE ).
 									replace( "OUTBOUND_CITY_NAME",
-										deals[ i ].OUTBOUND_CITY_NAME ).
+										( deals[ i ].OUTBOUND_CITY_NAME ).
+											replace( "ς", "" ) ).
 									replace( "OUTBOUND_DEPARTURE_AIRPORT_CODE",
 										deals[ i ].OUTBOUND_DEPARTURE_AIRPORT_CODE ).
 									replace( "INBOUND_CITY_NAME",
-										deals[ i ].INBOUND_CITY_NAME ).
+										( deals[ i ].INBOUND_CITY_NAME ).
+											replace( "ς", "" ) ).
 									replace( "INBOUND_DEPARTURE_AIRPORT_CODE",
 										deals[ i ].INBOUND_DEPARTURE_AIRPORT_CODE ).
 									replace( "OUTBOUND_DEPARTURE_DATE",
