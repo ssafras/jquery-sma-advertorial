@@ -170,6 +170,37 @@
 
 					}else if ( self.settings.mode === "cards" ) {
 
+						var cardsPhotos;
+						var cardsCityNames;
+
+						if ( self.settings.displayReverse === true ) {
+							cardsPhotos = new Array(
+								deals[ 0 ].OUTBOUND_CITY_IMG,
+								deals[ 1 ].OUTBOUND_CITY_IMG,
+								deals[ 2 ].OUTBOUND_CITY_IMG,
+								deals[ 3 ].OUTBOUND_CITY_IMG
+								);
+							cardsCityNames = new Array(
+								deals[ 0 ].OUTBOUND_CITY_NAME,
+								deals[ 1 ].OUTBOUND_CITY_NAME,
+								deals[ 2 ].OUTBOUND_CITY_NAME,
+								deals[ 3 ].OUTBOUND_CITY_NAME
+								);
+						} else {
+							cardsPhotos = new Array(
+								deals[ 0 ].INBOUND_CITY_IMG,
+								deals[ 1 ].INBOUND_CITY_IMG,
+								deals[ 2 ].INBOUND_CITY_IMG,
+								deals[ 3 ].INBOUND_CITY_IMG
+								);
+							cardsCityNames = new Array(
+								deals[ 0 ].INBOUND_CITY_NAME,
+								deals[ 1 ].INBOUND_CITY_NAME,
+								deals[ 2 ].INBOUND_CITY_NAME,
+								deals[ 3 ].INBOUND_CITY_NAME
+								);
+						}
+
 						$( self.element ).append(
 							"<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\">" +
 							"  <tr>" +
@@ -177,7 +208,7 @@
 							"     position: relative;" +
 							"     width: 328px;" +
 							"     height:135px;" +
-							"     background-image:url('" + deals[ 0 ].INBOUND_CITY_IMG + "')\">" +
+							"     background-image:url('" + cardsPhotos[ 0 ] + "')\">" +
 							"      <span style=\"" +
 							"       position: absolute;" +
 							"       top:20px;" +
@@ -187,7 +218,7 @@
 							"       text-shadow: 2px 2px #000000;" +
 							"       color:#FFFFFF;" +
 							"       font-weight:bold\">" +
-										deals[ 0 ].INBOUND_CITY_NAME +
+										cardsCityNames[ 0 ] +
 							"      </span>" +
 							( function( ) {
 								if ( self.settings.datesVisible ) {
@@ -237,7 +268,7 @@
 							"     position: relative;" +
 							"     width: 328px;" +
 							"     height:135px;" +
-							"     background-image:url('" + deals[ 1 ].INBOUND_CITY_IMG + "')\">" +
+							"     background-image:url('" + cardsPhotos[ 1 ] + "')\">" +
 							"      <span style=\"" +
 							"       position: absolute;" +
 							"       top:20px;" +
@@ -247,7 +278,7 @@
 							"       text-shadow: 2px 2px #000000;" +
 							"       color:#FFFFFF;" +
 							"       font-weight:bold\">" +
-										deals[ 1 ].INBOUND_CITY_NAME +
+										cardsCityNames[ 1 ] +
 							"      </span>" +
 							( function( ) {
 								if ( self.settings.datesVisible ) {
@@ -299,7 +330,7 @@
 							"     position: relative;" +
 							"     width: 328px;" +
 							"     height:135px;" +
-							"     background-image:url('" + deals[ 2 ].INBOUND_CITY_IMG + "')\">" +
+							"     background-image:url('" + cardsPhotos[ 2 ] + "')\">" +
 							"      <span style=\"" +
 							"       position: absolute;" +
 							"       top:20px;" +
@@ -309,7 +340,7 @@
 							"       text-shadow: 2px 2px #000000;" +
 							"       color:#FFFFFF;" +
 							"       font-weight:bold\">" +
-										deals[ 2 ].INBOUND_CITY_NAME +
+										cardsCityNames[ 2 ] +
 							"      </span>" +
 							( function( ) {
 								if ( self.settings.datesVisible ) {
@@ -359,7 +390,7 @@
 							"     position: relative;" +
 							"     width: 328px;" +
 							"     height:135px;" +
-							"     background-image:url('" + deals[ 3 ].INBOUND_CITY_IMG + "')\">" +
+							"     background-image:url('" + cardsPhotos[ 3 ] + "')\">" +
 							"      <span style=\"" +
 							"       position: absolute;" +
 							"       top:20px;" +
@@ -369,7 +400,7 @@
 							"       text-shadow: 2px 2px #000000;" +
 							"       color:#FFFFFF;" +
 							"       font-weight:bold\">" +
-										deals[ 3 ].INBOUND_CITY_NAME +
+										cardsCityNames[ 3 ] +
 							"      </span>" +
 							( function( ) {
 								if ( self.settings.datesVisible ) {
