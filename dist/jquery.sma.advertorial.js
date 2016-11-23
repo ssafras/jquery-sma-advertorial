@@ -183,19 +183,6 @@
 
 						if ( self.settings.displayReverse === true ) {
 							cardsPhotos = new Array(
-								deals[ 0 ].INBOUND_CITY_IMG,
-								deals[ 1 ].INBOUND_CITY_IMG,
-								deals[ 2 ].INBOUND_CITY_IMG,
-								deals[ 3 ].INBOUND_CITY_IMG
-								);
-							cardsCityNames = new Array(
-								deals[ 0 ].INBOUND_CITY_NAME,
-								deals[ 1 ].INBOUND_CITY_NAME,
-								deals[ 2 ].INBOUND_CITY_NAME,
-								deals[ 3 ].INBOUND_CITY_NAME
-								);
-						} else {
-							cardsPhotos = new Array(
 								deals[ 0 ].OUTBOUND_CITY_IMG,
 								deals[ 1 ].OUTBOUND_CITY_IMG,
 								deals[ 2 ].OUTBOUND_CITY_IMG,
@@ -206,6 +193,19 @@
 								deals[ 1 ].OUTBOUND_CITY_NAME,
 								deals[ 2 ].OUTBOUND_CITY_NAME,
 								deals[ 3 ].OUTBOUND_CITY_NAME
+								);
+						} else {
+							cardsPhotos = new Array(
+								deals[ 0 ].INBOUND_CITY_IMG,
+								deals[ 1 ].INBOUND_CITY_IMG,
+								deals[ 2 ].INBOUND_CITY_IMG,
+								deals[ 3 ].INBOUND_CITY_IMG
+								);
+							cardsCityNames = new Array(
+								deals[ 0 ].INBOUND_CITY_NAME,
+								deals[ 1 ].INBOUND_CITY_NAME,
+								deals[ 2 ].INBOUND_CITY_NAME,
+								deals[ 3 ].INBOUND_CITY_NAME
 								);
 						}
 
